@@ -1,0 +1,25 @@
+a {
+	cursor: pointer;
+}
+
+.help-block {
+	font-size: 12px;
+}
+
+.page-top {
+	background-color: #000000;
+	color: #FFFFFF;
+	padding: 10px;
+	vertical-align: center;
+	/*display: table;
+	table-layout: fixed;*/
+}
+
+.app-description {
+	text-align: right;
+}
+
+.page-top [class^="col-"] {
+	/*display: table-cell;
+	float: none;*/
+}
