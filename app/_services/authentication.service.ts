@@ -7,14 +7,14 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
 	constructor(private http: Http) { }
 
-	login(username, password) {
+	login(username, password, lcCode) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
-		return this.http.post('http://localhost:8080/wms-rest/login', JSON.stringify({ username: username, password: password }), options)
+		return this.http.post('http://localhost:8080/wms-rest/login', JSON.stringify({ username: username, password: password, lcCode: lcCode }), options)
 			.map((response: Response) => {
 				let user = response.json();
-				if(user && user.message) {
-					console.log(user.message);
+				if(user && user.message) { 
+					localStorage.setItem('currentLc',lcCode);
 					localStorage.setItem('currentUser', JSON.stringify(user));
 				}
 			});

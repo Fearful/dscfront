@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AuthenticationService, AlertService } from './_services/index';
+import { AuthenticationService, AlertService, LogisticCenterService, LocationService } from './_services/index';
 import { AuthGuard } from './_guards/index';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
+import { ItemCountComponent } from './item-count/index';
 import { AlertComponent } from './_directives/index';
+import { HeaderBarComponent } from './header-bar/index';
 
 @NgModule({
   imports:      [ 
@@ -23,12 +25,16 @@ import { AlertComponent } from './_directives/index';
   	AppComponent,
     AlertComponent,
   	HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ItemCountComponent,
+    HeaderBarComponent
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
-    AlertService
+    AlertService,
+    LogisticCenterService,
+    LocationService
   ],
   bootstrap:    [ AppComponent ]
 })

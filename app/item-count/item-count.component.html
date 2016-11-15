@@ -1,0 +1,37 @@
+<h2 class="text-center">SUBMIT COUNT</h2>
+<H4>LOCATION: {{logisticCenter}}</H4>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form name="form" (ngSubmit)="f.form.valid && verifyCount()" #f="ngForm" novalidate>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accountNumber.valid }">
+				<label for="acountNumber">Account Number: </label>
+				<input type="text" name="acountNumber" class="form-control" [(ngModel)]="model.acountNumber" #acountNumber="ngModel" required />
+				<div *ngIf="f.submitted && !acountNumber.valid" class="help-block">Account Number is required</div>
+			</div>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !itemId.valid }">
+				<label for="itemId">Item: </label>
+				<input type="text" name="itemId" class="form-control" [(ngModel)]="model.itemId" #itemId="ngModel" required />
+				<div *ngIf="f.submitted && !itemId.valid" class="help-block">Item is required</div>
+			</div>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !itemDescription.valid }">
+				<label for="itemDescription">Item Description: </label>
+				<input type="text" name="itemDescription" class="form-control" [(ngModel)]="model.itemDescription" #itemDescription="ngModel" required />
+				<div *ngIf="f.submitted && !itemDescription.valid" class="help-block">Item Description is required</div>
+			</div>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fullPallets.valid }">
+				<label for="fullPallets">Full Pallets: </label>
+				<input type="text" name="fullPallets" class="form-control" [(ngModel)]="model.fullPallets" #fullPallets="ngModel" required />
+				<div *ngIf="f.submitted && !fullPallets.valid" class="help-block">Full Pallets is required</div>
+			</div>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !partialPallets.valid }">
+				<label for="partialPallets">Partial Pallets: </label>
+				<input type="text" name="partialPallets" class="form-control" [(ngModel)]="model.partialPallets" #partialPallets="ngModel" />
+				<div *ngIf="f.submitted && !partialPallets.valid" class="help-block">Partial Pallets is required</div>
+			</div>
+			<div class="form-group">
+				<button [disabled]="loading" class="btn btn-primary">Submit</button>
+				<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			</div>
+		</form>
+	</div>	
+</div>
