@@ -14,6 +14,8 @@ import { ItemCountComponent } from './item-count/index';
 import { AlertComponent } from './_directives/index';
 import { HeaderBarComponent } from './header-bar/index';
 
+import { Config } from './config';
+
 @NgModule({
   imports:      [ 
   	BrowserModule,
@@ -30,6 +32,7 @@ import { HeaderBarComponent } from './header-bar/index';
     HeaderBarComponent
   ],
   providers: [
+    Config,
     AuthGuard,
     AuthenticationService,
     AlertService,

@@ -7,9 +7,10 @@ import { ItemCountComponent } from './item-count/index';
 import { AuthGuard }   from './_guards/index';
 
 const routes: Routes = [
-  { path: 'home',  component: HomeComponent, canActivate: [AuthGuard] }, 
-  { path: 'login', component: LoginComponent },
-  { path: 'item-count', component: ItemCountComponent }
+	{ path:'', redirectTo:'/home', pathMatch:'full' },
+	{ path: 'home',  component: HomeComponent, canActivate: [AuthGuard] }, 
+	{ path: 'login', component: LoginComponent },
+	{ path: 'item-count', component: ItemCountComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

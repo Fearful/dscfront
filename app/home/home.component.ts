@@ -20,19 +20,24 @@ export class HomeComponent {
 	verifyNumber() {
 		let currUser = JSON.parse(localStorage.getItem('currentUser')).user;
 		let lc = localStorage.getItem('currentLc');
-		this.locationService.validateLocation(this.model.location,currUser.email,lc)
+		this.locationService.validateLocation(this.model.location,currUser.name,lc)
 			.subscribe(
 				data => {
-					console.log('hola');
-					let navigationExtras: NavigationExtras = {
-						queryParams: {
-							'account': data.account,
-							'location': data.location,
-							'itemCode': data.item.code,
-							'itemDescription': data.item.description}
-					}
+					// let navigationExtras: NavigationExtras = {
+					// 	queryParams: {
+					// 		'account': data.account,
+					// 		'location': data.location,
+					// 		'itemCode': data.item.code,
+					// 		'itemDescription': data.item.description}
+					// }
 
-					this.router.navigate(['/item-count', navigationExtras]);
+					// this.router.navigate(['/item-count', navigationExtras]);
+					this.router.navigate(['/item-count', {
+						account: data.account,
+						location: data.location,
+						itemCode: data.item.code,
+						itemDescription: data.item.description
+					}]);
 				},
 				error => {
 					this.alertService.error(error);

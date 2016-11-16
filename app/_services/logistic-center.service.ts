@@ -5,17 +5,17 @@ import 'rxjs/add/operator/map';
 
 import { LogisticCenter } from '../shared/logistic-center';
 
+import { Config } from '../config';
+
 @Injectable()
 export class LogisticCenterService {
 
-	private apiurl: string = 'http://localhost:8080';
-
-	constructor( private http: Http ) { }
+	constructor( private http: Http, private config: Config ) { }
 
 	getLogisticCenterList() {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
-		return this.http.get(this.apiurl + '/wms-rest/logisticCenters', options)
+		return this.http.get(this.config.getEndpoint() + '/wms-rest/logisticCenters', options)
 			.map((response: Response) =>  response.json().logisticCenters);
 	}
 }

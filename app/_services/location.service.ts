@@ -3,11 +3,12 @@ import { Http, Headers, Response, RequestOptions, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { Config } from '../config';
+
 @Injectable()
 export class LocationService {
-	private apiurl: string = 'http://localhost:8080';
 
-	constructor( private http: Http ) { }
+	constructor( private http: Http, private config: Config ) { }
 
 	validateLocation(location, user, lc) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -15,11 +16,11 @@ export class LocationService {
 		let params = new URLSearchParams();
 		params.set('location',location);
 		params.set('user',user);
-		params.set('lc',lc);
+		params.set('lc_id',lc);
 
 		let options = new RequestOptions({ headers: headers, search: params });
 
-		return this.http.get(this.apiurl + '/wms-rest/location', options)
+		return this.http.get(this.config.getEndpoint() + '/wms-rest/location', options)
 			.map((response: Response) => response.json());
 	}
 }
