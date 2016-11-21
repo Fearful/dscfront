@@ -1,31 +1,28 @@
 <h2 class="text-center">SUBMIT COUNT</h2>
-<H4>LOCATION: {{logisticCenter}}</H4>
+<H4>LOCATION: {{locationCode}}</H4>
 <div class="panel panel-default">
 	<div class="panel-body">
 		<form name="form" (ngSubmit)="f.form.valid && verifyCount()" #f="ngForm" novalidate>
-			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accountNumber.valid }">
+			<div class="form-group">
 				<label for="accountNumber">Account Number: </label>
-				<input type="text" name="accountNumber" class="form-control" [(ngModel)]="model.accountNumber" #accountNumber="ngModel" [disabled]="true" required />
-				<div *ngIf="f.submitted && !accountNumber.valid" class="help-block">Account Number is required</div>
+				<input type="text" name="accountNumber" class="form-control" [(ngModel)]="model.accountNumber" #accountNumber="ngModel" [disabled]="true" />
 			</div>
-			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !itemCode.valid }">
+			<div class="form-group">
 				<label for="itemCode">Item: </label>
-				<input type="text" name="itemCode" class="form-control" [(ngModel)]="model.itemCode" #itemCode="ngModel" [disabled]="true" required />
-				<div *ngIf="f.submitted && !itemCode.valid" class="help-block">Item is required</div>
+				<input type="text" name="itemCode" class="form-control" [(ngModel)]="model.itemCode" #itemCode="ngModel" [disabled]="true" />
 			</div>
-			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !itemDescription.valid }">
+			<div class="form-group">
 				<label for="itemDescription">Item Description: </label>
-				<input type="text" name="itemDescription" class="form-control" [(ngModel)]="model.itemDescription" #itemDescription="ngModel" [disabled]="true" required />
-				<div *ngIf="f.submitted && !itemDescription.valid" class="help-block">Item Description is required</div>
+				<input type="text" name="itemDescription" class="form-control" [(ngModel)]="model.itemDescription" #itemDescription="ngModel" [disabled]="true" />
 			</div>
 			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fullPallets.valid }">
 				<label for="fullPallets">Full Pallets: </label>
-				<input type="text" name="fullPallets" class="form-control" [(ngModel)]="model.fullPallets" #fullPallets="ngModel" required />
+				<input type="number" name="fullPallets" class="form-control" [(ngModel)]="model.fullPallets" #fullPallets="ngModel" required min="0" />
 				<div *ngIf="f.submitted && !fullPallets.valid" class="help-block">Full Pallets is required</div>
 			</div>
 			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !partialPallets.valid }">
 				<label for="partialPallets">Partial Pallets: </label>
-				<input type="text" name="partialPallets" class="form-control" [(ngModel)]="model.partialPallets" #partialPallets="ngModel" />
+				<input type="number" name="partialPallets" class="form-control" [(ngModel)]="model.partialPallets" #partialPallets="ngModel" min="0" />
 				<div *ngIf="f.submitted && !partialPallets.valid" class="help-block">Partial Pallets is required</div>
 			</div>
 			<div class="form-group">
@@ -34,4 +31,36 @@
 			</div>
 		</form>
 	</div>	
+</div>
+
+<!-- MODALS -->
+
+<div class="modal fade" bsModal #confirmModal="bs-modal" [config]="{backdrop: 'static'}" 
+	tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Count Success</h4>
+			</div>
+			<div class="modal-body" align="center">
+				{{modalMessage}} <br/>
+				<button type="button" class="btn" (click)="countOk()">Back to Location</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" bsModal #recountModal="bs-modal" [config]="{backdrop: 'static'}" 
+	tabindex="-1" role="dialog" aria-labelledby="recountModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Count Mismatch</h4>
+			</div>
+			<div class="modal-body" align="center">
+				{{modalMessage}} <br/>
+				<button type="button" class="btn" (click)="recountModal.hide()">Ok</button>
+			</div>
+		</div>
+	</div>
 </div>

@@ -17,10 +17,13 @@ export class HeaderBarComponent {
 	constructor( 
 		private router: Router,
 		private authenticationService: AuthenticationService) {
-		let currentUser = localStorage.getItem('currentUser');
-		if(currentUser)
-			this.loggedUser = JSON.parse(currentUser).user;
-		console.log(this.loggedUser);
+		router.events.subscribe((val) => {
+			let currentUser = localStorage.getItem('currentUser');
+			if(currentUser)
+		 		this.loggedUser = JSON.parse(currentUser).user;
+		 	else
+		 		this.loggedUser = undefined;
+		});
 	}
 
 	logout() {

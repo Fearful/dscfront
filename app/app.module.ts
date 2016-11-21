@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AuthenticationService, AlertService, LogisticCenterService, LocationService } from './_services/index';
+import { AuthenticationService, AlertService, LogisticCenterService, LocationService, CountService } from './_services/index';
 import { AuthGuard } from './_guards/index';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
@@ -14,6 +14,8 @@ import { ItemCountComponent } from './item-count/index';
 import { AlertComponent } from './_directives/index';
 import { HeaderBarComponent } from './header-bar/index';
 
+import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 import { Config } from './config';
 
 @NgModule({
@@ -21,7 +23,8 @@ import { Config } from './config';
   	BrowserModule,
   	FormsModule,
   	HttpModule,
-  	AppRoutingModule
+  	AppRoutingModule, 
+    ModalModule
   ],
   declarations: [ 
   	AppComponent,
@@ -37,7 +40,8 @@ import { Config } from './config';
     AuthenticationService,
     AlertService,
     LogisticCenterService,
-    LocationService
+    LocationService,
+    CountService
   ],
   bootstrap:    [ AppComponent ]
 })

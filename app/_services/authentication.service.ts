@@ -9,14 +9,14 @@ import { Config } from '../config';
 export class AuthenticationService {
 	constructor(private http: Http, private config: Config) { }
 
-	login(username, password, lcId) {
+	login(username, password, lc) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
 		return this.http.post(this.config.getEndpoint() + '/wms-rest/login', JSON.stringify({ username: username, password: password }), options)
 			.map((response: Response) => {
 				let user = response.json();
 				if(user && user.message) { 
-					localStorage.setItem('currentLc',lcId);
+					localStorage.setItem('currentLc',JSON.stringify(lc));
 					localStorage.setItem('currentUser', JSON.stringify(user));
 				}
 			});

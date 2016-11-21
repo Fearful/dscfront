@@ -18,7 +18,7 @@
 				<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !validateLC() }">
 					<label for="lcSelect">Logistic Center</label>
 					<select name="lcSelect" class="form-control" [(ngModel)]="model.selectedLc" #selectedLc="ngModel" required>
-						<option *ngFor="let lc of lcList" [ngValue]="lc.id" >{{lc.name}}</option>
+						<option *ngFor="let lc of lcList" [ngValue]="lc" >{{lc.name}}</option>
 					</select>
 					<div *ngIf="f.submitted && !validateLC()" class="help-block">Logistic Center is required</div>
 				</div>
