@@ -12,7 +12,7 @@ export class AuthenticationService {
 	login(username, password, lc) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
-		return this.http.post(this.config.getEndpoint() + '/wms-rest/login', JSON.stringify({ username: username, password: password }), options)
+		return this.http.post(this.config.getEndpoint() + '/login', JSON.stringify({ username: username, password: password }), options)
 			.map((response: Response) => {
 				let user = response.json();
 				if(user && user.message) { 

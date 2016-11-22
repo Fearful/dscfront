@@ -1,0 +1,10 @@
+<h2>Logs of the day</h2>
+
+<div id="report-options" >
+	<label for="lcSelect">Logistic Center</label>
+	<select name="lcSelect" class="form-control" [(ngModel)]="model.selectedLc" #selectedLc="ngModel" required>
+		<option *ngFor="let lc of lcList" [ngValue]="lc" >{{lc.name}}</option>
+	</select>
+</div>
+
+<data-table [data]="countList"></data-table>

@@ -15,7 +15,7 @@ export class LogisticCenterService {
 	getLogisticCenterList() {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
-		return this.http.get(this.config.getEndpoint() + '/wms-rest/logisticCenters', options)
+		return this.http.get(this.config.getEndpoint() + '/logisticCenters', options)
 			.map((response: Response) =>  response.json().logisticCenters);
 	}
 }

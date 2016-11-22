@@ -13,8 +13,10 @@ import { LoginComponent } from './login/index';
 import { ItemCountComponent } from './item-count/index';
 import { AlertComponent } from './_directives/index';
 import { HeaderBarComponent } from './header-bar/index';
+import { CountReportComponent, CountTableComponent } from './count-report/index';
 
-import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalModule, PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 import { Config } from './config';
 
@@ -24,7 +26,9 @@ import { Config } from './config';
   	FormsModule,
   	HttpModule,
   	AppRoutingModule, 
-    ModalModule
+    ModalModule,
+    PaginationModule,
+    Ng2TableModule
   ],
   declarations: [ 
   	AppComponent,
@@ -32,7 +36,9 @@ import { Config } from './config';
   	HomeComponent,
     LoginComponent,
     ItemCountComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    CountReportComponent,
+    CountTableComponent
   ],
   providers: [
     Config,

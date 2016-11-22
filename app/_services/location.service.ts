@@ -20,7 +20,7 @@ export class LocationService {
 
 		let options = new RequestOptions({ headers: headers, search: params });
 
-		return this.http.get(this.config.getEndpoint() + '/wms-rest/location', options)
+		return this.http.get(this.config.getEndpoint() + '/location', options)
 			.map((response: Response) => response.json());
 	}
 }

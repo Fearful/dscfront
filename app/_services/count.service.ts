@@ -14,7 +14,7 @@ export class CountService {
 	itemCount(count: UserCount) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers});
-		return this.http.post(this.config.getEndpoint() + '/wms-rest/count', JSON.stringify(count), options)
+		return this.http.post(this.config.getEndpoint() + '/count', JSON.stringify(count), options)
 			.map((response: Response) => response.json());
 	}
 }
