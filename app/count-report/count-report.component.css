@@ -1,0 +1,14 @@
+.is-table-row {
+	display: table;
+}
+
+.is-table-row [class*="col-"] {
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+.search-button {
+	text-align: right;
+	vertical-align: bottom !important;
+	padding-bottom: 0px;
+}

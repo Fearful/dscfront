@@ -1,10 +1,34 @@
-<h2>Logs of the day</h2>
-
+<h2 align="Center">Count Report</h2>
 <div id="report-options" >
-	<label for="lcSelect">Logistic Center</label>
-	<select name="lcSelect" class="form-control" [(ngModel)]="model.selectedLc" #selectedLc="ngModel" required>
-		<option *ngFor="let lc of lcList" [ngValue]="lc" >{{lc.name}}</option>
-	</select>
+	<div class="row is-table-row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="lcSelect">Logistic Center</label>
+				<select name="lcSelect" class="form-control" [(ngModel)]="model.selectedLc" #selectedLc="ngModel" required>
+					<option *ngFor="let lc of lcList" [ngValue]="lc" >{{lc.name}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="dateFrom">From</label>
+				<input type="date" name="dateFrom" class="form-control" [(ngModel)]="model.dateFrom" />
+				<!-- <datepicker name="dateFrom" [(ngModel)]="model.dateFrom" [maxDate]="maxDate" [showWeeks]="false"></datepicker> -->
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="dateTo">To</label>
+				<input type="date" name="dateTo" class="form-control" [(ngModel)]="model.dateTo" />
+				<!-- <datepicker name="dateTo" [(ngModel)]="model.dateTo" [maxDate]="maxDate" [showWeeks]="false"></datepicker> -->
+			</div>
+		</div>
+		<div class="col-md-3 search-button">
+			<div class="form-group">
+				<button class="btn btn-primary">Search</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <data-table [data]="countList"></data-table>

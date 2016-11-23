@@ -15,7 +15,7 @@ import { AlertComponent } from './_directives/index';
 import { HeaderBarComponent } from './header-bar/index';
 import { CountReportComponent, CountTableComponent } from './count-report/index';
 
-import { ModalModule, PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalModule, PaginationModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 import { Config } from './config';
@@ -28,6 +28,7 @@ import { Config } from './config';
   	AppRoutingModule, 
     ModalModule,
     PaginationModule,
+    DatepickerModule,
     Ng2TableModule
   ],
   declarations: [ 

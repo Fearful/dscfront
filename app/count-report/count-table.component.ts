@@ -11,7 +11,7 @@ export class CountTableComponent implements OnInit {
   public rows:Array<any> = [];
   public columns:Array<any> = [
   {title: 'Location', name: 'location'},
-  {title: 'User',name: 'user'},
+  {title: 'User',name: 'user', filtering: {filterString: '', placeholder: 'Filter user'},
   {title: 'Item', name: 'item'},
   {title: 'Full Pallets', name: 'fullPallets'},
   {title: 'Partial Pallets',  name: 'partialPallets'},

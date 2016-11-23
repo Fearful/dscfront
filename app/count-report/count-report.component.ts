@@ -6,13 +6,15 @@ import { CountLog } from './count-log';
 
 @Component({
 	moduleId: module.id,
-	templateUrl: 'count-report.component.html'
+	templateUrl: 'count-report.component.html',
+	styleUrls: ['count-report.component.css']
 })
 
 export class CountReportComponent {
 	model: any = {};
 	lcList: LogisticCenter[] = [];
 	countList: CountLog[] = [];
+	maxDate: Date = new Date();
 
 	constructor(
 		private logisticCenterService: LogisticCenterService) {}
