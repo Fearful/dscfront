@@ -4,7 +4,8 @@ The frontend is developed in Angular 2(https://angular.io/).
 
 ## Prerequisites
 
-It needs Node 4 or above and Npm 3 or above to work.
+It needs Node 4 or above and Npm 3 or above to work (the latest the version the better it is). 
+Node will include npm, but if the version of node is old, it is better to confirm its version with the command `npm --version`.
 
 ## Run the Frontend
 
