@@ -76,4 +76,12 @@ export class ItemCountComponent implements OnInit {
 		this.router.navigate(['/home']);
 	}
 
+	validateNumber(event: KeyboardEvent) {
+		let exp = new RegExp('[0-9]');
+		if(!exp.test(event.key)) {
+			event.stopPropagation();
+			event.preventDefault();
+		}
+	}
+
 }

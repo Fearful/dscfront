@@ -41,13 +41,14 @@ export class LoginComponent implements OnInit {
 	}
 
 	private loadLcList() {
-		//this.lcList.push(new LogisticCenter('<Select a Logistic Center>',undefined,undefined));
 		this.logisticCenterService.getLogisticCenterList()
 			.subscribe(lcList => { 
-				this.lcList = lcList;});
+				this.lcList = lcList;
+				this.lcList.unshift(new LogisticCenter('<Select one>',undefined,undefined));});
 	}
 
 	private validateLC() {
-		return (this.model.selectedLc != undefined);
+		return (this.model.selectedLc != undefined 
+			&& this.model.selectedLc.code != undefined);
 	}
 }
